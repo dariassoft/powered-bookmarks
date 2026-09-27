@@ -1,0 +1,347 @@
+{
+  "extensionName": {
+    "message": "Gestor de pestañas"
+  },
+  "extensionDescription": {
+    "message": "Organiza tus pestañas y ábrelas bajo demanda para reducir el consumo de memoria."
+  },
+  "authorCredit": {
+    "message": "Autor: Daniel Esteban Arias"
+  },
+  "authorProfile": {
+    "message": "Perfil de LinkedIn"
+  },
+  "syncBrowserAvailable": {
+    "message": "Sincronización del navegador disponible; funciona cuando tu cuenta del navegador tiene la sincronización activa."
+  },
+  "syncBrowserUnavailable": {
+    "message": "La sincronización del navegador no está disponible en este navegador."
+  },
+  "syncDisabledZipAvailable": {
+    "message": "Sincronización del navegador desactivada. Usa copias ZIP cifradas para mover tus datos entre dispositivos."
+  },
+  "masterPasswordCreatePrompt": {
+    "message": "Crea una contraseña maestra para cifrar tus datos:"
+  },
+  "masterPasswordPrompt": {
+    "message": "Introduce tu contraseña maestra para desbloquear tus datos:"
+  },
+  "masterPasswordConfirm": {
+    "message": "Repite la contraseña maestra:"
+  },
+  "masterPasswordRequired": {
+    "message": "La contraseña maestra es necesaria para continuar."
+  },
+  "masterPasswordMismatch": {
+    "message": "Las contraseñas no coinciden."
+  },
+  "masterPasswordInvalid": {
+    "message": "La contraseña maestra no es válida."
+  },
+  "optionsWelcome": {
+    "message": "Tus pestañas guardadas aparecerán aquí."
+  },
+  "createFolder": {
+    "message": "Nueva carpeta"
+  },
+  "folders": {
+    "message": "Carpetas"
+  },
+  "emptyFolder": {
+    "message": "Esta carpeta está vacía."
+  },
+  "url": {
+    "message": "URL"
+  },
+  "description": {
+    "message": "Descripción"
+  },
+  "lastViewed": {
+    "message": "Última vez visto"
+  },
+  "folderPath": {
+    "message": "Ruta de carpetas"
+  },
+  "noDescription": {
+    "message": "Sin descripción"
+  },
+  "folderNamePrompt": {
+    "message": "Nombre de la carpeta:"
+  },
+  "operationFailed": {
+    "message": "No se pudo completar la operación."
+  },
+  "exportHtml": {
+    "message": "Exportar HTML"
+  },
+  "exportCsv": {
+    "message": "Exportar CSV"
+  },
+  "exportTxt": {
+    "message": "Exportar TXT"
+  },
+  "exportZip": {
+    "message": "Descargar copia ZIP"
+  },
+  "importZip": {
+    "message": "Abrir copia ZIP"
+  },
+  "zipReadme": {
+    "message": "Copia cifrada de Gestor de pestañas. Sube este archivo a Google Drive y descárgalo en otro dispositivo. Abre la extensión e introduce la misma contraseña maestra antes de importar."
+  },
+  "zipImportInProgress": {
+    "message": "Abriendo copia ZIP cifrada..."
+  },
+  "zipImportCompleted": {
+    "message": "Copia ZIP importada correctamente."
+  },
+  "zipImportFailed": {
+    "message": "No se pudo abrir la copia ZIP."
+  },
+  "searchPlaceholder": {
+    "message": "Buscar pestañas..."
+  },
+  "searchResults": {
+    "message": "Resultados de búsqueda"
+  },
+  "refreshImport": {
+    "message": "Actualizar importación de grupos y pestañas"
+  },
+  "importHtml": {
+    "message": "Importar pestañas de otro navegador"
+  },
+  "syncBrowserBookmarks": {
+    "message": "Sincronizar con marcadores del navegador"
+  },
+  "managedBookmarksFolder": {
+    "message": "Gestor de pestañas"
+  },
+  "syncBrowserBookmarksConfirm": {
+    "message": "Se reemplazará el contenido de la carpeta administrada por la extensión. Los demás marcadores se conservarán. ¿Continuar?"
+  },
+  "syncBrowserBookmarksInProgress": {
+    "message": "Sincronizando con los marcadores del navegador..."
+  },
+  "syncBrowserBookmarksCompleted": {
+    "message": "Marcadores sincronizados: {folders} carpetas y {tabs} enlaces."
+  },
+  "syncBrowserBookmarksFailed": {
+    "message": "No se pudo sincronizar con los marcadores del navegador."
+  },
+  "htmlImportInProgress": {
+    "message": "Importando marcadores HTML..."
+  },
+  "htmlImportFailed": {
+    "message": "No se pudo importar el archivo HTML."
+  },
+  "openAsGroup": {
+    "message": "Crear grupo o marcadores"
+  },
+  "folderHasNoTabs": {
+    "message": "Esta carpeta no contiene pestañas."
+  },
+  "selectAll": {
+    "message": "Seleccionar todos"
+  },
+  "deselectAll": {
+    "message": "Deseleccionar todos"
+  },
+  "copySelected": {
+    "message": "Copiar seleccionados"
+  },
+  "removeSelected": {
+    "message": "Quitar seleccionados"
+  },
+  "deleteSelected": {
+    "message": "Eliminar seleccionados"
+  },
+  "selectNode": {
+    "message": "Seleccionar nodo"
+  },
+  "deleteSelectedConfirm": {
+    "message": "¿Eliminar los elementos seleccionados y sus descendientes?"
+  },
+  "cancel": {
+    "message": "Cancelar"
+  },
+  "confirm": {
+    "message": "Confirmar"
+  },
+  "findDuplicates": {
+    "message": "Buscar duplicados"
+  },
+  "duplicateResults": {
+    "message": "Duplicados encontrados"
+  },
+  "findEmptyFolders": {
+    "message": "Listar carpetas vacías"
+  },
+  "emptyFolderResults": {
+    "message": "Carpetas sin enlaces"
+  },
+  "duplicateIgnore": {
+    "message": "Duplicados: ignorar"
+  },
+  "duplicateKeep": {
+    "message": "Duplicados: guardar igual"
+  },
+  "duplicateRename": {
+    "message": "Duplicados: renombrar"
+  },
+  "duplicateRemove": {
+    "message": "Duplicados: quitar existentes"
+  },
+  "sortTitle": {
+    "message": "Ordenar: título"
+  },
+  "sortCreated": {
+    "message": "Ordenar: creación"
+  },
+  "sortViewed": {
+    "message": "Ordenar: última visita"
+  },
+  "sortDomain": {
+    "message": "Ordenar: dominio"
+  },
+  "sortUrl": {
+    "message": "Ordenar: URL"
+  },
+  "importCompleted": {
+    "message": "Importación completada:"
+  },
+  "tabsImported": {
+    "message": "pestañas guardadas"
+  },
+  "groupsImported": {
+    "message": "grupos importados"
+  },
+  "duplicateStrategyLabel": {
+    "message": "Estrategia para duplicados"
+  },
+  "sortModeLabel": {
+    "message": "Criterio de ordenamiento"
+  },
+  "treeSortLabel": {
+    "message": "Ordenar carpetas"
+  },
+  "treeSortTitle": {
+    "message": "Por nombre"
+  },
+  "treeSortTabs": {
+    "message": "Por cantidad de enlaces"
+  },
+  "treeSortNodes": {
+    "message": "Por cantidad de subnodos"
+  },
+  "foldersFirst": {
+    "message": "Mostrar carpetas primero"
+  },
+  "nodesCount": {
+    "message": "nodos"
+  },
+  "clipboardUnavailable": {
+    "message": "El portapapeles del sistema no está disponible en este contexto."
+  },
+  "toggleFolder": {
+    "message": "Expandir o contraer carpeta"
+  },
+  "editNode": {
+    "message": "Editar"
+  },
+  "renameNode": {
+    "message": "Renombrar"
+  },
+  "removeNode": {
+    "message": "Quitar de esta ubicación"
+  },
+  "deleteNode": {
+    "message": "Eliminar"
+  },
+  "copyNode": {
+    "message": "Copiar"
+  },
+  "pasteNode": {
+    "message": "Pegar"
+  },
+  "refreshThumbnail": {
+    "message": "Actualizar miniatura"
+  },
+  "renamePrompt": {
+    "message": "Nuevo nombre:"
+  },
+  "deleteConfirm": {
+    "message": "¿Eliminar este elemento y todos sus descendientes?"
+  },
+  "importInProgress": {
+    "message": "Importando marcadores..."
+  },
+  "groupsImportInProgress": {
+    "message": "Importando grupos de pestañas..."
+  },
+  "undo": {
+    "message": "Deshacer"
+  },
+  "redo": {
+    "message": "Rehacer"
+  },
+  "close": {
+    "message": "Cerrar"
+  },
+  "copyCompleted": {
+    "message": "Elemento copiado. Ahora puedes pegarlo."
+  },
+  "thumbnailInProgress": {
+    "message": "Creando y guardando la miniatura..."
+  },
+  "thumbnailCompleted": {
+    "message": "Miniatura actualizada y guardada."
+  },
+  "thumbnailFailed": {
+    "message": "No se pudo actualizar la miniatura."
+  },
+  "openTab": {
+    "message": "Abrir pestaña"
+  },
+  "duplicatesInProgress": {
+    "message": "Buscando duplicados..."
+  },
+  "noDuplicatesFound": {
+    "message": "No se encontraron duplicados."
+  },
+  "duplicatesFound": {
+    "message": "Duplicados encontrados"
+  },
+  "addLink": {
+    "message": "Agregar enlace"
+  },
+  "addFromOpenTabs": {
+    "message": "Agregar desde pestañas abiertas"
+  },
+  "noOpenTabs": {
+    "message": "No hay pestañas abiertas"
+  },
+  "ungroupedTabs": {
+    "message": "Pestañas sin agrupar"
+  },
+  "tabGroupLabel": {
+    "message": "Grupo: {group}"
+  },
+  "titleLabel": {
+    "message": "Título"
+  },
+  "targetFolderLabel": {
+    "message": "Carpeta de destino: {folder}"
+  },
+  "urlPlaceholder": {
+    "message": "https://ejemplo.com"
+  },
+  "titlePlaceholder": {
+    "message": "Título del enlace"
+  },
+  "linkAdded": {
+    "message": "Enlace guardado correctamente."
+  },
+  "invalidUrl": {
+    "message": "Por favor introduce una URL válida."
+  }
+}

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BackgroundAgentGlobalSettings">
+    <option name="selectedModelId" value="gpt-5.6-luna" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a2ef9808-7e54-4e92-bd74-c1c1eb2c7be5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_/home/darias/WebstormProjects/bookmarks" value="3JTw5MHrNAPpnUp02cY90z0h9sf" />
+    </persistenceIdMap>
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="36" />
+    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="2.2638534693353467" />
+      <entry key="MS500" value="5.14021898404194" />
+      <entry key="S2" value="14.795371038995697" />
+      <entry key="S5" value="29.431575920342162" />
+      <entry key="S10" value="49.57626629697994" />
+      <entry key="S30" value="89.94438436380207" />
+      <entry key="S60" value="111.21992630523559" />
+      <entry key="M2" value="151.62593003000478" />
+      <entry key="M5" value="285.8383786865549" />
+      <entry key="M10" value="403.6132031259249" />
+      <entry key="M15" value="459.4369468657637" />
+      <entry key="M30" value="526.4633752150303" />
+      <entry key="H1" value="564.8810164937738" />
+      <entry key="H2" value="585.4558891153036" />
+      <entry key="H4" value="596.1039308983002" />
+      <entry key="D1" value="605.1665161670081" />
+      <entry key="W1" value="606.7376425702157" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="0.0" />
+      <entry key="S60" value="0.0" />
+      <entry key="M2" value="0.0" />
+      <entry key="M5" value="0.0" />
+      <entry key="M10" value="0.0" />
+      <entry key="M15" value="0.0" />
+      <entry key="M30" value="0.0" />
+      <entry key="H1" value="0.0" />
+      <entry key="H2" value="0.0" />
+      <entry key="H4" value="0.0" />
+      <entry key="D1" value="0.0" />
+      <entry key="W1" value="0.0" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="2.202896391714381" />
+      <entry key="MS500" value="5.113514573187506" />
+      <entry key="S2" value="14.776085570934407" />
+      <entry key="S5" value="29.415774638027298" />
+      <entry key="S10" value="49.562508353378284" />
+      <entry key="S30" value="89.93572770345433" />
+      <entry key="S60" value="111.21446356752689" />
+      <entry key="M2" value="151.62178190920986" />
+      <entry key="M5" value="285.83449698551027" />
+      <entry key="M10" value="403.61022632870163" />
+      <entry key="M15" value="459.43462780181335" />
+      <entry key="M30" value="526.4620125211721" />
+      <entry key="H1" value="564.8802764253269" />
+      <entry key="H2" value="585.4555032889037" />
+      <entry key="H4" value="596.1037338898215" />
+      <entry key="D1" value="605.1664827505739" />
+      <entry key="W1" value="606.7376377820225" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3JTvPrhRmsSjydIYz7X2Z5DcSCV" />
+  <component name="ProjectSessionTemplates">
+    <option name="panelTemplate">
+      <template>
+        <option name="modeId" value="Agent" />
+        <option name="model">
+          <model>
+            <option name="modelType" value="builtin_id" />
+            <option name="modelValue" value="gpt-5.6-luna" />
+          </model>
+        </option>
+        <option name="targetType" value="BACKGROUND" />
+        <option name="worktreeMode" value="WORKSPACE" />
+      </template>
+    </option>
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="sortByType" value="true" />
+    <option name="sortKey" value="BY_TYPE" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "copilot.chat.legacySessionMetadata.migrated": "true",
+    "git-widget-placeholder": "master",
+    "javascript.preferred.runtime.type.id": "node",
+    "junie.onboarding.icon.badge.shown": "true",
+    "junie.plugin.stays.banner.dismissed": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true",
+    "ts.external.directory.path": "/home/darias/WebstormProjects/bookmarks/node_modules/typescript/lib"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-WS-262.10968.77" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a2ef9808-7e54-4e92-bd74-c1c1eb2c7be5" name="Changes" comment="" />
+      <created>1789697852119</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1789697852119</updated>
+      <workItem from="1789697852892" duration="1671000" />
+      <workItem from="1789700117280" duration="4427000" />
+      <workItem from="1789747005945" duration="10257000" />
+      <workItem from="1789764737462" duration="2162000" />
+      <workItem from="1790527189303" duration="4189000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

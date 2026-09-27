@@ -1,0 +1,347 @@
+{
+  "extensionName": {
+    "message": "Tab manager"
+  },
+  "extensionDescription": {
+    "message": "Organize your tabs and open them on demand to reduce memory usage."
+  },
+  "authorCredit": {
+    "message": "Author: Daniel Esteban Arias"
+  },
+  "authorProfile": {
+    "message": "LinkedIn profile"
+  },
+  "syncBrowserAvailable": {
+    "message": "Browser synchronization is available; it works when your browser account has sync enabled."
+  },
+  "syncBrowserUnavailable": {
+    "message": "Browser synchronization is unavailable in this browser."
+  },
+  "syncDisabledZipAvailable": {
+    "message": "Browser synchronization is disabled. Use encrypted ZIP backups to move your data between devices."
+  },
+  "masterPasswordCreatePrompt": {
+    "message": "Create a master password to encrypt your data:"
+  },
+  "masterPasswordPrompt": {
+    "message": "Enter your master password to unlock your data:"
+  },
+  "masterPasswordConfirm": {
+    "message": "Repeat the master password:"
+  },
+  "masterPasswordRequired": {
+    "message": "A master password is required to continue."
+  },
+  "masterPasswordMismatch": {
+    "message": "The passwords do not match."
+  },
+  "masterPasswordInvalid": {
+    "message": "The master password is invalid."
+  },
+  "optionsWelcome": {
+    "message": "Your saved tabs will appear here."
+  },
+  "createFolder": {
+    "message": "New folder"
+  },
+  "folders": {
+    "message": "Folders"
+  },
+  "emptyFolder": {
+    "message": "This folder is empty."
+  },
+  "url": {
+    "message": "URL"
+  },
+  "description": {
+    "message": "Description"
+  },
+  "lastViewed": {
+    "message": "Last viewed"
+  },
+  "folderPath": {
+    "message": "Folder path"
+  },
+  "noDescription": {
+    "message": "No description"
+  },
+  "folderNamePrompt": {
+    "message": "Folder name:"
+  },
+  "operationFailed": {
+    "message": "The operation could not be completed."
+  },
+  "exportHtml": {
+    "message": "Export HTML"
+  },
+  "exportCsv": {
+    "message": "Export CSV"
+  },
+  "exportTxt": {
+    "message": "Export TXT"
+  },
+  "exportZip": {
+    "message": "Download ZIP backup"
+  },
+  "importZip": {
+    "message": "Open ZIP backup"
+  },
+  "zipReadme": {
+    "message": "Encrypted Gestor de pestañas backup. Upload this file to Google Drive and download it on another device. Open the extension and enter the same master password before importing."
+  },
+  "zipImportInProgress": {
+    "message": "Opening encrypted ZIP backup..."
+  },
+  "zipImportCompleted": {
+    "message": "ZIP backup imported successfully."
+  },
+  "zipImportFailed": {
+    "message": "The ZIP backup could not be opened."
+  },
+  "searchPlaceholder": {
+    "message": "Search tabs..."
+  },
+  "searchResults": {
+    "message": "Search results"
+  },
+  "refreshImport": {
+    "message": "Refresh groups and tabs import"
+  },
+  "importHtml": {
+    "message": "Import tabs from another browser"
+  },
+  "syncBrowserBookmarks": {
+    "message": "Sync with browser bookmarks"
+  },
+  "managedBookmarksFolder": {
+    "message": "Tab Manager"
+  },
+  "syncBrowserBookmarksConfirm": {
+    "message": "The extension-managed folder will be replaced. Other bookmarks will be preserved. Continue?"
+  },
+  "syncBrowserBookmarksInProgress": {
+    "message": "Syncing with browser bookmarks..."
+  },
+  "syncBrowserBookmarksCompleted": {
+    "message": "Bookmarks synchronized: {folders} folders and {tabs} links."
+  },
+  "syncBrowserBookmarksFailed": {
+    "message": "Browser bookmark synchronization failed."
+  },
+  "htmlImportInProgress": {
+    "message": "Importing HTML bookmarks..."
+  },
+  "htmlImportFailed": {
+    "message": "The HTML file could not be imported."
+  },
+  "openAsGroup": {
+    "message": "Create group or bookmarks"
+  },
+  "folderHasNoTabs": {
+    "message": "This folder contains no tabs."
+  },
+  "selectAll": {
+    "message": "Select all"
+  },
+  "deselectAll": {
+    "message": "Deselect all"
+  },
+  "copySelected": {
+    "message": "Copy selected"
+  },
+  "removeSelected": {
+    "message": "Remove selected"
+  },
+  "deleteSelected": {
+    "message": "Delete selected"
+  },
+  "selectNode": {
+    "message": "Select node"
+  },
+  "deleteSelectedConfirm": {
+    "message": "Delete the selected items and their descendants?"
+  },
+  "cancel": {
+    "message": "Cancel"
+  },
+  "confirm": {
+    "message": "Confirm"
+  },
+  "findDuplicates": {
+    "message": "Find duplicates"
+  },
+  "duplicateResults": {
+    "message": "Duplicates found"
+  },
+  "findEmptyFolders": {
+    "message": "List empty folders"
+  },
+  "emptyFolderResults": {
+    "message": "Folders without links"
+  },
+  "duplicateIgnore": {
+    "message": "Duplicates: ignore"
+  },
+  "duplicateKeep": {
+    "message": "Duplicates: keep"
+  },
+  "duplicateRename": {
+    "message": "Duplicates: rename"
+  },
+  "duplicateRemove": {
+    "message": "Duplicates: remove existing"
+  },
+  "sortTitle": {
+    "message": "Sort: title"
+  },
+  "sortCreated": {
+    "message": "Sort: created"
+  },
+  "sortViewed": {
+    "message": "Sort: last viewed"
+  },
+  "sortDomain": {
+    "message": "Sort: domain"
+  },
+  "sortUrl": {
+    "message": "Sort: URL"
+  },
+  "importCompleted": {
+    "message": "Import completed:"
+  },
+  "tabsImported": {
+    "message": "tabs saved"
+  },
+  "groupsImported": {
+    "message": "groups imported"
+  },
+  "duplicateStrategyLabel": {
+    "message": "Duplicate strategy"
+  },
+  "sortModeLabel": {
+    "message": "Sort order"
+  },
+  "treeSortLabel": {
+    "message": "Sort folders"
+  },
+  "treeSortTitle": {
+    "message": "By name"
+  },
+  "treeSortTabs": {
+    "message": "By link count"
+  },
+  "treeSortNodes": {
+    "message": "By subnode count"
+  },
+  "foldersFirst": {
+    "message": "Show folders first"
+  },
+  "nodesCount": {
+    "message": "nodes"
+  },
+  "clipboardUnavailable": {
+    "message": "The system clipboard is unavailable in this context."
+  },
+  "toggleFolder": {
+    "message": "Expand or collapse folder"
+  },
+  "editNode": {
+    "message": "Edit"
+  },
+  "renameNode": {
+    "message": "Rename"
+  },
+  "removeNode": {
+    "message": "Remove from this location"
+  },
+  "deleteNode": {
+    "message": "Delete"
+  },
+  "copyNode": {
+    "message": "Copy"
+  },
+  "pasteNode": {
+    "message": "Paste"
+  },
+  "refreshThumbnail": {
+    "message": "Refresh thumbnail"
+  },
+  "renamePrompt": {
+    "message": "New name:"
+  },
+  "deleteConfirm": {
+    "message": "Delete this item and all its descendants?"
+  },
+  "importInProgress": {
+    "message": "Importing bookmarks..."
+  },
+  "groupsImportInProgress": {
+    "message": "Importing tab groups..."
+  },
+  "undo": {
+    "message": "Undo"
+  },
+  "redo": {
+    "message": "Redo"
+  },
+  "close": {
+    "message": "Close"
+  },
+  "copyCompleted": {
+    "message": "Item copied. You can now paste it."
+  },
+  "thumbnailInProgress": {
+    "message": "Creating and saving thumbnail..."
+  },
+  "thumbnailCompleted": {
+    "message": "Thumbnail updated and saved."
+  },
+  "thumbnailFailed": {
+    "message": "The thumbnail could not be updated."
+  },
+  "openTab": {
+    "message": "Open tab"
+  },
+  "duplicatesInProgress": {
+    "message": "Finding duplicates..."
+  },
+  "noDuplicatesFound": {
+    "message": "No duplicates found."
+  },
+  "duplicatesFound": {
+    "message": "Duplicates found"
+  },
+  "addLink": {
+    "message": "Add link"
+  },
+  "addFromOpenTabs": {
+    "message": "Add from open tabs"
+  },
+  "noOpenTabs": {
+    "message": "No open tabs"
+  },
+  "ungroupedTabs": {
+    "message": "Ungrouped tabs"
+  },
+  "tabGroupLabel": {
+    "message": "Group: {group}"
+  },
+  "titleLabel": {
+    "message": "Title"
+  },
+  "targetFolderLabel": {
+    "message": "Target folder: {folder}"
+  },
+  "urlPlaceholder": {
+    "message": "https://example.com"
+  },
+  "titlePlaceholder": {
+    "message": "Link title"
+  },
+  "linkAdded": {
+    "message": "Link saved successfully."
+  },
+  "invalidUrl": {
+    "message": "Please enter a valid URL."
+  }
+}

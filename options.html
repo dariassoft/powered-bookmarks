@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="extensionName"></title>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="app-header">
+        <h1 data-i18n="extensionName"></h1>
+        <div class="header-actions">
+          <button id="create-folder" type="button" data-i18n="createFolder"></button>
+          <button id="refresh-import" type="button" data-i18n="refreshImport"></button>
+          <button id="import-html" type="button" data-i18n="importHtml"></button>
+          <button id="sync-browser-bookmarks" type="button" data-i18n="syncBrowserBookmarks"></button>
+          <input id="html-file-input" type="file" accept=".html,text/html" hidden />
+          <button id="find-duplicates" type="button" data-i18n="findDuplicates"></button>
+          <button id="find-empty-folders" type="button" data-i18n="findEmptyFolders"></button>
+          <button id="select-all" type="button" data-i18n="selectAll"></button>
+          <button id="copy-selected" type="button" data-i18n="copySelected"></button>
+          <button id="delete-selected" type="button" data-i18n="deleteSelected"></button>
+          <button id="undo-action" type="button" data-i18n="undo"></button>
+          <button id="redo-action" type="button" data-i18n="redo"></button>
+          <button id="export-html" type="button" data-i18n="exportHtml"></button>
+          <button id="export-csv" type="button" data-i18n="exportCsv"></button>
+          <button id="export-txt" type="button" data-i18n="exportTxt"></button>
+          <button id="export-zip" type="button" data-i18n="exportZip"></button>
+          <button id="import-zip" type="button" data-i18n="importZip"></button>
+          <input id="zip-file-input" type="file" accept=".zip,application/zip" hidden />
+        </div>
+      </header>
+      <div id="import-status" class="import-status" role="status" aria-live="polite" hidden>
+        <span class="spinner" aria-hidden="true"></span>
+        <span id="import-status-text"></span>
+        <progress id="import-progress" max="1" value="0" hidden></progress>
+      </div>
+      <p id="sync-status" class="sync-status" role="status"></p>
+      <div class="explorer">
+        <aside class="tree-panel">
+          <h2 data-i18n="folders"></h2>
+          <label class="tree-sort-control">
+            <span data-i18n="treeSortLabel"></span>
+            <select id="tree-sort-mode">
+              <option value="title" data-i18n="treeSortTitle"></option>
+              <option value="tabCount" data-i18n="treeSortTabs"></option>
+              <option value="nodeCount" data-i18n="treeSortNodes"></option>
+            </select>
+          </label>
+          <div id="folder-tree"></div>
+        </aside>
+        <section class="content-panel">
+          <div class="content-header">
+            <h2 id="folder-title"></h2>
+            <input id="search-input" type="search" data-i18n-placeholder="searchPlaceholder" />
+            <select id="sort-mode" data-i18n-aria-label="sortModeLabel">
+              <option value="title" data-i18n="sortTitle"></option>
+              <option value="createdAt" data-i18n="sortCreated"></option>
+              <option value="lastViewedAt" data-i18n="sortViewed"></option>
+              <option value="domain" data-i18n="sortDomain"></option>
+              <option value="url" data-i18n="sortUrl"></option>
+            </select>
+            <label class="folders-first-control">
+              <input id="folders-first" type="checkbox" />
+              <span data-i18n="foldersFirst"></span>
+            </label>
+          </div>
+          <div id="folder-content" class="item-grid"></div>
+          <p id="empty-state" class="empty-state" data-i18n="emptyFolder"></p>
+          <article id="tab-details" class="tab-details" hidden>
+            <h3 id="details-title"></h3>
+            <dl>
+              <dt data-i18n="url"></dt>
+              <dd id="details-url"></dd>
+              <dt data-i18n="description"></dt>
+              <dd id="details-description"></dd>
+              <dt data-i18n="folderPath"></dt>
+              <dd id="details-path"></dd>
+              <dt data-i18n="lastViewed"></dt>
+              <dd id="details-last-viewed"></dd>
+            </dl>
+            <img id="details-image" alt="" loading="lazy" hidden />
+          </article>
+        </section>
+      </div>
+      <div id="context-menu" class="context-menu" role="menu" hidden></div>
+      <dialog id="message-modal" class="message-modal">
+        <h2 id="message-modal-title" data-i18n="extensionName"></h2>
+        <p id="message-modal-text"></p>
+        <button id="message-modal-close" type="button" data-i18n="close"></button>
+      </dialog>
+      <dialog id="action-modal" class="message-modal">
+        <h2 id="action-modal-title"></h2>
+        <p id="action-modal-message"></p>
+        <input id="action-modal-input" type="text" autocomplete="off" hidden />
+        <div class="modal-actions">
+          <button id="action-modal-cancel" type="button" data-i18n="cancel"></button>
+          <button id="action-modal-confirm" type="button" data-i18n="confirm"></button>
+        </div>
+      </dialog>
+      <dialog id="link-modal" class="message-modal link-modal">
+        <h2 id="link-modal-heading" data-i18n="addLink"></h2>
+        <p id="link-modal-folder" class="modal-folder-hint"></p>
+        <form id="link-modal-form" method="dialog">
+          <label class="modal-field-label" for="link-modal-url" data-i18n="url"></label>
+          <input id="link-modal-url" type="url" required data-i18n-placeholder="urlPlaceholder" autocomplete="off" />
+          <label class="modal-field-label" for="link-modal-title-input" data-i18n="titleLabel"></label>
+          <input id="link-modal-title-input" type="text" required data-i18n-placeholder="titlePlaceholder" autocomplete="off" />
+          <div class="modal-actions">
+            <button id="link-modal-cancel" type="button" data-i18n="cancel"></button>
+            <button id="link-modal-confirm" type="submit" data-i18n="confirm"></button>
+          </div>
+        </form>
+      </dialog>
+      <footer class="app-footer">
+        <small data-i18n="authorCredit"></small>
+        <a href="https://www.linkedin.com/in/danielestebanarias" target="_blank" rel="noreferrer" data-i18n="authorProfile"></a>
+        <span> · dariassoft@gmail.com</span>
+      </footer>
+    </main>
+    <script type="module" src="/src/options/main.ts"></script>
+  </body>
+</html>

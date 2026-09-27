@@ -1,0 +1,20 @@
+{
+  "name": "bookmarks",
+  "version": "1.0.0",
+  "description": "Extensión multiplataforma para gestionar pestañas guardadas",
+  "type": "module",
+  "scripts": {
+    "build": "tsc --noEmit && vite build",
+    "dev": "vite"
+  },
+  "private": true,
+  "devDependencies": {
+    "@types/chrome": "^0.1.29",
+    "@types/node": "^22.10.2",
+    "typescript": "^5.6.3",
+    "vite": "^6.0.0"
+  },
+  "dependencies": {
+    "fflate": "^0.8.3"
+  }
+}

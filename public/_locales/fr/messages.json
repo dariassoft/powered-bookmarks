@@ -1,0 +1,347 @@
+{
+  "extensionName": {
+    "message": "Gestionnaire d’onglets"
+  },
+  "extensionDescription": {
+    "message": "Organisez vos onglets et ouvrez-les à la demande pour réduire l’utilisation de la mémoire."
+  },
+  "authorCredit": {
+    "message": "Auteur : Daniel Esteban Arias"
+  },
+  "authorProfile": {
+    "message": "Profil LinkedIn"
+  },
+  "syncBrowserAvailable": {
+    "message": "La synchronisation du navigateur est disponible ; elle fonctionne lorsque le compte du navigateur active la synchronisation."
+  },
+  "syncBrowserUnavailable": {
+    "message": "La synchronisation du navigateur n'est pas disponible dans ce navigateur."
+  },
+  "syncDisabledZipAvailable": {
+    "message": "La synchronisation du navigateur est désactivée. Utilisez des sauvegardes ZIP chiffrées entre appareils."
+  },
+  "masterPasswordCreatePrompt": {
+    "message": "Créez un mot de passe maître pour chiffrer vos données :"
+  },
+  "masterPasswordPrompt": {
+    "message": "Saisissez votre mot de passe maître pour déverrouiller vos données :"
+  },
+  "masterPasswordConfirm": {
+    "message": "Répétez le mot de passe maître :"
+  },
+  "masterPasswordRequired": {
+    "message": "Un mot de passe maître est nécessaire pour continuer."
+  },
+  "masterPasswordMismatch": {
+    "message": "Les mots de passe ne correspondent pas."
+  },
+  "masterPasswordInvalid": {
+    "message": "Le mot de passe maître est invalide."
+  },
+  "optionsWelcome": {
+    "message": "Vos onglets enregistrés apparaîtront ici."
+  },
+  "createFolder": {
+    "message": "Nouveau dossier"
+  },
+  "folders": {
+    "message": "Dossiers"
+  },
+  "emptyFolder": {
+    "message": "Ce dossier est vide."
+  },
+  "url": {
+    "message": "URL"
+  },
+  "description": {
+    "message": "Description"
+  },
+  "lastViewed": {
+    "message": "Dernière consultation"
+  },
+  "folderPath": {
+    "message": "Chemin des dossiers"
+  },
+  "noDescription": {
+    "message": "Aucune description"
+  },
+  "folderNamePrompt": {
+    "message": "Nom du dossier :"
+  },
+  "operationFailed": {
+    "message": "L’opération n’a pas pu être terminée."
+  },
+  "exportHtml": {
+    "message": "Exporter HTML"
+  },
+  "exportCsv": {
+    "message": "Exporter CSV"
+  },
+  "exportTxt": {
+    "message": "Exporter TXT"
+  },
+  "exportZip": {
+    "message": "Télécharger une sauvegarde ZIP"
+  },
+  "importZip": {
+    "message": "Ouvrir une sauvegarde ZIP"
+  },
+  "zipReadme": {
+    "message": "Sauvegarde chiffrée de Gestionnaire d’onglets. Téléversez ce fichier sur Google Drive et téléchargez-le sur un autre appareil. Ouvrez l’extension et saisissez le même mot de passe maître avant l’importation."
+  },
+  "zipImportInProgress": {
+    "message": "Ouverture de la sauvegarde ZIP chiffrée..."
+  },
+  "zipImportCompleted": {
+    "message": "Sauvegarde ZIP importée avec succès."
+  },
+  "zipImportFailed": {
+    "message": "La sauvegarde ZIP n’a pas pu être ouverte."
+  },
+  "searchPlaceholder": {
+    "message": "Rechercher des onglets..."
+  },
+  "searchResults": {
+    "message": "Résultats de recherche"
+  },
+  "refreshImport": {
+    "message": "Actualiser l’importation des groupes et onglets"
+  },
+  "importHtml": {
+    "message": "Importer des onglets d’un autre navigateur"
+  },
+  "syncBrowserBookmarks": {
+    "message": "Synchroniser avec les marque-pages du navigateur"
+  },
+  "managedBookmarksFolder": {
+    "message": "Gestionnaire d’onglets"
+  },
+  "syncBrowserBookmarksConfirm": {
+    "message": "Le contenu du dossier géré par l’extension sera remplacé. Les autres marque-pages seront conservés. Continuer ?"
+  },
+  "syncBrowserBookmarksInProgress": {
+    "message": "Synchronisation avec les marque-pages du navigateur..."
+  },
+  "syncBrowserBookmarksCompleted": {
+    "message": "Marque-pages synchronisés : {folders} dossiers et {tabs} liens."
+  },
+  "syncBrowserBookmarksFailed": {
+    "message": "La synchronisation des marque-pages a échoué."
+  },
+  "htmlImportInProgress": {
+    "message": "Importation des marque-pages HTML..."
+  },
+  "htmlImportFailed": {
+    "message": "Le fichier HTML n’a pas pu être importé."
+  },
+  "openAsGroup": {
+    "message": "Créer un groupe ou des marque-pages"
+  },
+  "folderHasNoTabs": {
+    "message": "Ce dossier ne contient aucun onglet."
+  },
+  "selectAll": {
+    "message": "Tout sélectionner"
+  },
+  "deselectAll": {
+    "message": "Tout désélectionner"
+  },
+  "copySelected": {
+    "message": "Copier la sélection"
+  },
+  "removeSelected": {
+    "message": "Retirer la sélection"
+  },
+  "deleteSelected": {
+    "message": "Supprimer la sélection"
+  },
+  "selectNode": {
+    "message": "Sélectionner le nœud"
+  },
+  "deleteSelectedConfirm": {
+    "message": "Supprimer les éléments sélectionnés et leurs descendants ?"
+  },
+  "cancel": {
+    "message": "Annuler"
+  },
+  "confirm": {
+    "message": "Confirmer"
+  },
+  "findDuplicates": {
+    "message": "Rechercher les doublons"
+  },
+  "duplicateResults": {
+    "message": "Doublons trouvés"
+  },
+  "findEmptyFolders": {
+    "message": "Lister les dossiers vides"
+  },
+  "emptyFolderResults": {
+    "message": "Dossiers sans liens"
+  },
+  "duplicateIgnore": {
+    "message": "Doublons : ignorer"
+  },
+  "duplicateKeep": {
+    "message": "Doublons : conserver"
+  },
+  "duplicateRename": {
+    "message": "Doublons : renommer"
+  },
+  "duplicateRemove": {
+    "message": "Doublons : supprimer les existants"
+  },
+  "sortTitle": {
+    "message": "Trier : titre"
+  },
+  "sortCreated": {
+    "message": "Trier : création"
+  },
+  "sortViewed": {
+    "message": "Trier : dernière consultation"
+  },
+  "sortDomain": {
+    "message": "Trier : domaine"
+  },
+  "sortUrl": {
+    "message": "Trier : URL"
+  },
+  "importCompleted": {
+    "message": "Importation terminée :"
+  },
+  "tabsImported": {
+    "message": "onglets enregistrés"
+  },
+  "groupsImported": {
+    "message": "groupes importés"
+  },
+  "duplicateStrategyLabel": {
+    "message": "Stratégie pour les doublons"
+  },
+  "sortModeLabel": {
+    "message": "Critère de tri"
+  },
+  "treeSortLabel": {
+    "message": "Trier les dossiers"
+  },
+  "treeSortTitle": {
+    "message": "Par nom"
+  },
+  "treeSortTabs": {
+    "message": "Par nombre de liens"
+  },
+  "treeSortNodes": {
+    "message": "Par nombre de sous-nœuds"
+  },
+  "foldersFirst": {
+    "message": "Afficher les dossiers en premier"
+  },
+  "nodesCount": {
+    "message": "nœuds"
+  },
+  "clipboardUnavailable": {
+    "message": "Le presse-papiers système n'est pas disponible dans ce contexte."
+  },
+  "toggleFolder": {
+    "message": "Développer ou réduire le dossier"
+  },
+  "editNode": {
+    "message": "Modifier"
+  },
+  "renameNode": {
+    "message": "Renommer"
+  },
+  "removeNode": {
+    "message": "Retirer de cet emplacement"
+  },
+  "deleteNode": {
+    "message": "Supprimer"
+  },
+  "copyNode": {
+    "message": "Copier"
+  },
+  "pasteNode": {
+    "message": "Coller"
+  },
+  "refreshThumbnail": {
+    "message": "Actualiser la miniature"
+  },
+  "renamePrompt": {
+    "message": "Nouveau nom :"
+  },
+  "deleteConfirm": {
+    "message": "Supprimer cet élément et tous ses descendants ?"
+  },
+  "importInProgress": {
+    "message": "Importation des marque-pages..."
+  },
+  "groupsImportInProgress": {
+    "message": "Importation des groupes d’onglets..."
+  },
+  "undo": {
+    "message": "Annuler"
+  },
+  "redo": {
+    "message": "Rétablir"
+  },
+  "close": {
+    "message": "Fermer"
+  },
+  "copyCompleted": {
+    "message": "Élément copié. Vous pouvez maintenant le coller."
+  },
+  "thumbnailInProgress": {
+    "message": "Création et enregistrement de la miniature..."
+  },
+  "thumbnailCompleted": {
+    "message": "Miniature mise à jour et enregistrée."
+  },
+  "thumbnailFailed": {
+    "message": "La miniature n’a pas pu être mise à jour."
+  },
+  "openTab": {
+    "message": "Ouvrir l’onglet"
+  },
+  "duplicatesInProgress": {
+    "message": "Recherche des doublons..."
+  },
+  "noDuplicatesFound": {
+    "message": "Aucun doublon trouvé."
+  },
+  "duplicatesFound": {
+    "message": "Doublons trouvés"
+  },
+  "addLink": {
+    "message": "Ajouter un lien"
+  },
+  "addFromOpenTabs": {
+    "message": "Ajouter depuis les onglets ouverts"
+  },
+  "noOpenTabs": {
+    "message": "Aucun onglet ouvert"
+  },
+  "ungroupedTabs": {
+    "message": "Onglets non groupés"
+  },
+  "tabGroupLabel": {
+    "message": "Groupe : {group}"
+  },
+  "titleLabel": {
+    "message": "Titre"
+  },
+  "targetFolderLabel": {
+    "message": "Dossier de destination : {folder}"
+  },
+  "urlPlaceholder": {
+    "message": "https://exemple.com"
+  },
+  "titlePlaceholder": {
+    "message": "Titre du lien"
+  },
+  "linkAdded": {
+    "message": "Lien enregistré avec succès."
+  },
+  "invalidUrl": {
+    "message": "Veuillez saisir une URL valide."
+  }
+}

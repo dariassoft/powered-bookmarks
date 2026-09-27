@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "lib": ["ESNext", "DOM"],
+    "types": ["chrome", "node"]
+  },
+  "include": ["src", "vite.config.ts"]
+}

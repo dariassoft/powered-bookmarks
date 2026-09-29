@@ -3,9 +3,20 @@
   "version": "1.0.0",
   "description": "Extensión multiplataforma para gestionar pestañas guardadas",
   "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "build": "tsc --noEmit && vite build",
-    "dev": "vite"
+    "build": "npm run build:extension && npm run build:shared && npm run build:api && npm run build:web",
+    "build:extension": "tsc --noEmit && vite build",
+    "build:shared": "npm run build --workspace @bookmarks/shared",
+    "build:api": "npm run build --workspace @bookmarks/api",
+    "build:web": "npm run build --workspace @bookmarks/web",
+    "test": "npm run test --workspace @bookmarks/shared",
+    "dev": "vite",
+    "dev:api": "npm run start:dev --workspace @bookmarks/api",
+    "dev:web": "npm run dev --workspace @bookmarks/web"
   },
   "private": true,
   "devDependencies": {

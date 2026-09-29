@@ -7,7 +7,20 @@
     <option name="selectedModelId" value="gpt-5.6-luna" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2ef9808-7e54-4e92-bd74-c1c1eb2c7be5" name="Changes" comment="" />
+    <list default="true" id="a2ef9808-7e54-4e92-bd74-c1c1eb2c7be5" name="Changes" comment=".">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/options.html" beforeDir="false" afterPath="$PROJECT_DIR$/options.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/_locales/en/messages.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/_locales/en/messages.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/_locales/es/messages.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/_locales/es/messages.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/_locales/fr/messages.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/_locales/fr/messages.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/options/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/options/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/options/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/options/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/StorageService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/StorageService.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,35 +32,47 @@
     </persistenceIdMap>
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="36" />
+    <option name="cachedIndexableFilesCount" value="70" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;dariassoft&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/dariassoft/powered-bookmarks.git&quot;,
+    &quot;accountId&quot;: &quot;a0ddddba-ce34-4094-b55b-fee85218206a&quot;
+  }
+}</component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.6647741040919635" />
-      <entry key="MS500" value="4.007954921082018" />
-      <entry key="S2" value="6.003670205487659" />
-      <entry key="S5" value="7.480635674345246" />
-      <entry key="S10" value="11.1095504809027" />
-      <entry key="S30" value="23.345570643589426" />
-      <entry key="S60" value="31.16087507271278" />
-      <entry key="M2" value="36.738170738253274" />
-      <entry key="M5" value="40.854621359886075" />
-      <entry key="M10" value="42.49576323472478" />
-      <entry key="M15" value="44.8717876511708" />
-      <entry key="M30" value="77.83401727766588" />
-      <entry key="H1" value="188.08363356969437" />
-      <entry key="H2" value="339.82536776690193" />
-      <entry key="H4" value="467.7630994346959" />
-      <entry key="D1" value="615.7130842833415" />
-      <entry key="W1" value="645.828699105846" />
+      <entry key="MS100" value="1.22605389667321" />
+      <entry key="MS500" value="3.9550340501230767" />
+      <entry key="S2" value="14.077775150121282" />
+      <entry key="S5" value="30.027888609931903" />
+      <entry key="S10" value="52.57974214906913" />
+      <entry key="S30" value="107.92561928367778" />
+      <entry key="S60" value="161.9395046936502" />
+      <entry key="M2" value="231.976328535224" />
+      <entry key="M5" value="358.12831884425884" />
+      <entry key="M10" value="520.3905166489347" />
+      <entry key="M15" value="640.0110331994503" />
+      <entry key="M30" value="844.1419165704535" />
+      <entry key="H1" value="1019.0982968359582" />
+      <entry key="H2" value="1220.555767098766" />
+      <entry key="H4" value="1483.8127201004738" />
+      <entry key="D1" value="1983.9697952189558" />
+      <entry key="W1" value="2119.4308174925495" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -69,23 +94,23 @@
       <entry key="W1" value="0.0" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.5373620310044978" />
-      <entry key="MS500" value="3.9444486116247797" />
-      <entry key="S2" value="5.979283234643219" />
-      <entry key="S5" value="7.4686054062947065" />
-      <entry key="S10" value="11.100973145001586" />
-      <entry key="S30" value="23.339829444168792" />
-      <entry key="S60" value="31.157095635818255" />
-      <entry key="M2" value="36.73596204571115" />
-      <entry key="M5" value="40.85364497074456" />
-      <entry key="M10" value="42.49525709683704" />
-      <entry key="M15" value="44.87143695208328" />
-      <entry key="M30" value="77.8337558753296" />
-      <entry key="H1" value="188.08335773014534" />
-      <entry key="H2" value="339.8251292389459" />
-      <entry key="H4" value="467.76293758768094" />
-      <entry key="D1" value="615.7130490802034" />
-      <entry key="W1" value="645.8286938372255" />
+      <entry key="MS100" value="1.1864263925899776" />
+      <entry key="MS500" value="3.933658126527904" />
+      <entry key="S2" value="14.058556893220862" />
+      <entry key="S5" value="30.010537344996283" />
+      <entry key="S10" value="52.56420211594783" />
+      <entry key="S30" value="107.91476115793228" />
+      <entry key="S60" value="161.93136526472458" />
+      <entry key="M2" value="231.97048423221412" />
+      <entry key="M5" value="358.12451007783613" />
+      <entry key="M10" value="520.3876366614018" />
+      <entry key="M15" value="640.0086479677814" />
+      <entry key="M30" value="844.1403319806061" />
+      <entry key="H1" value="1019.0973143082492" />
+      <entry key="H2" value="1220.5551223554296" />
+      <entry key="H4" value="1483.8122848704977" />
+      <entry key="D1" value="1983.9696867268678" />
+      <entry key="W1" value="2119.430800615968" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -128,6 +153,7 @@
     "javascript.preferred.runtime.type.id": "node",
     "junie.onboarding.icon.badge.shown": "true",
     "junie.plugin.stays.banner.dismissed": "true",
+    "last_opened_file_path": "/home/darias/WebstormProjects/bookmarks",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.jshint": "true",
     "node.js.detected.package.tslint": "true",
@@ -139,6 +165,11 @@
     "ts.external.directory.path": "/home/darias/WebstormProjects/bookmarks/node_modules/typescript/lib"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -157,8 +188,19 @@
       <workItem from="1789700117280" duration="4427000" />
       <workItem from="1789747005945" duration="10257000" />
       <workItem from="1789764737462" duration="2162000" />
-      <workItem from="1790527189303" duration="4501000" />
+      <workItem from="1790527189303" duration="9770000" />
+      <workItem from="1790604296642" duration="2074000" />
+      <workItem from="1790723107296" duration="1578000" />
     </task>
+    <task id="LOCAL-00001" summary=".">
+      <option name="closed" value="true" />
+      <created>1790535773593</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1790535773593</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,5 +216,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
 </project>

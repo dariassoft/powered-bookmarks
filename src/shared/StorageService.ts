@@ -368,6 +368,11 @@ export class StorageService {
     await this.writeSchema(schema);
   }
 
+  async replaceSchema(schema: StorageSchema): Promise<void> {
+    this.assertValidSchema(schema);
+    await this.saveSchema(this.cloneSchema(schema));
+  }
+
   private async writeSchema(schema: StorageSchema): Promise<void> {
     await chrome.storage.local.set({
       [STORAGE_KEY]: await this.encryptSchema(schema),

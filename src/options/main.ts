@@ -1,18 +1,20 @@
 import './styles.css';
-import { applyTranslations, getMessage } from '../shared/i18n';
-import { storageService } from '../shared/StorageService';
-import { searchNodes } from '../shared/SearchService';
-import { findDuplicateGroups, normalizeUrl } from '../shared/DuplicateService';
+import {applyTranslations, getMessage} from '../shared/i18n';
+import {storageService} from '../shared/StorageService';
+import {searchNodes} from '../shared/SearchService';
+import {findDuplicateGroups, normalizeUrl} from '../shared/DuplicateService';
 import {
   bookmarksImporter,
   htmlBookmarksImporter,
   tabGroupsImporter,
   type ImportOptions,
 } from '../importers';
-import { buildCsv, buildNetscapeHtml, buildTxt, downloadExport } from '../exporters';
-import { createEncryptedArchive, readEncryptedArchive } from '../shared/ArchiveService';
-import { syncSchemaToBrowserBookmarks } from '../importers/BrowserBookmarksSync';
-import type { BookmarkNode, FolderNode, SortMode, StorageSchema, TabNode } from '../shared/types';
+import {buildCsv, buildNetscapeHtml, buildTxt, downloadExport} from '../exporters';
+import {createEncryptedArchive, readEncryptedArchive} from '../shared/ArchiveService';
+import {syncSchemaToBrowserBookmarks} from '../importers/BrowserBookmarksSync';
+import type {BookmarkNode, FolderNode, SortMode, StorageSchema, TabNode} from '../shared/types';
+import {remoteSyncService} from '../shared/RemoteSyncService';
+import {tabSuspensionService, type SuspensionCandidate} from '../shared/TabSuspensionService';
 
 const required = <T extends Element>(selector: string): T => {
   const element = document.querySelector<T>(selector);
@@ -72,6 +74,19 @@ const linkModalUrl = required<HTMLInputElement>('#link-modal-url');
 const linkModalTitleInput = required<HTMLInputElement>('#link-modal-title-input');
 const linkModalCancel = required<HTMLButtonElement>('#link-modal-cancel');
 const linkModalConfirm = required<HTMLButtonElement>('#link-modal-confirm');
+const cloudSyncDetail = required<HTMLElement>('#cloud-sync-detail');
+const linkDevice = required<HTMLButtonElement>('#link-device');
+const completeDeviceLink = required<HTMLButtonElement>('#complete-device-link');
+const syncUpload = required<HTMLButtonElement>('#sync-upload');
+const syncDownload = required<HTMLButtonElement>('#sync-download');
+const disconnectDevice = required<HTMLButtonElement>('#disconnect-device');
+const analyzeTabs = required<HTMLButtonElement>('#analyze-tabs');
+const suspendAllTabs = required<HTMLButtonElement>('#suspend-all-tabs');
+const restoreSuspension = required<HTMLButtonElement>('#restore-suspension');
+const inactiveMinutes = required<HTMLInputElement>('#inactive-minutes');
+const excludedDomains = required<HTMLInputElement>('#excluded-domains');
+const suspensionSummary = required<HTMLElement>('#suspension-summary');
+const suspensionResults = required<HTMLElement>('#suspension-results');
 
 let schema: StorageSchema;
 let masterPassword = '';
@@ -84,6 +99,7 @@ let clipboardNodeIds: string[] = [];
 type TreeSortMode = 'title' | 'tabCount' | 'nodeCount';
 let selectedTreeSortMode: TreeSortMode = 'title';
 const expandedFolders = new Set<string>();
+let suspensionCandidates: SuspensionCandidate[] = [];
 
 async function initialize(): Promise<void> {
   applyTranslations();
@@ -91,9 +107,8 @@ async function initialize(): Promise<void> {
   schema = await storageService.getSchema();
   selectedFolderId = schema.rootFolderId;
   expandedFolders.add(schema.rootFolderId);
-  syncStatus.textContent = getMessage(
-    'syncDisabledZipAvailable',
-  );
+  syncStatus.textContent = getMessage('syncEnabled');
+  await refreshRemoteSyncState();
   document.addEventListener('click', hideContextMenu);
   document.addEventListener('pointerdown', (event) => {
     if (!(event.target instanceof Element) || !contextMenu.contains(event.target)) {
@@ -123,6 +138,14 @@ async function initialize(): Promise<void> {
       void showContextMenu(event, undefined, selectedFolderId);
     }
   });
+  linkDevice.addEventListener('click', () => void startRemoteDeviceLink().catch(reportError));
+  completeDeviceLink.addEventListener('click', () => void finishRemoteDeviceLink().catch(reportError));
+  syncUpload.addEventListener('click', () => void uploadRemoteVault().catch(reportError));
+  syncDownload.addEventListener('click', () => void downloadRemoteVault().catch(reportError));
+  disconnectDevice.addEventListener('click', () => void disconnectRemoteDevice().catch(reportError));
+  analyzeTabs.addEventListener('click', () => void analyzeInactiveTabs().catch(reportError));
+  suspendAllTabs.addEventListener('click', () => void suspendCandidates(suspensionCandidates).catch(reportError));
+  restoreSuspension.addEventListener('click', () => void restoreLatestSuspension().catch(reportError));
   render();
 }
 
@@ -236,8 +259,8 @@ function renderFolder(): void {
   let nodes = showEmptyFolders
     ? listEmptyFolders()
     : searchQuery
-    ? searchNodes(schema, searchQuery)
-    : folder.children.map((id) => schema.nodes[id]).filter(isNode);
+      ? searchNodes(schema, searchQuery)
+      : folder.children.map((id) => schema.nodes[id]).filter(isNode);
   if (showDuplicates) {
     nodes = findDuplicateGroups(schema).flatMap((group) => group.tabs);
   }
@@ -425,7 +448,7 @@ function hideDetails(): void {
 }
 
 async function openTab(tab: TabNode): Promise<void> {
-  await chrome.tabs.create({ url: tab.url });
+  await chrome.tabs.create({url: tab.url});
   await storageService.updateLastViewedAt(tab.id);
   schema = await storageService.getSchema();
   renderFolder();
@@ -534,7 +557,7 @@ interface OpenTabsData {
 
 async function getOpenTabsData(): Promise<OpenTabsData> {
   if (typeof chrome === 'undefined' || !chrome.tabs?.query) {
-    return { groups: [], ungroupedTabs: [], allTabs: [] };
+    return {groups: [], ungroupedTabs: [], allTabs: []};
   }
   try {
     const rawTabs = await chrome.tabs.query({});
@@ -588,10 +611,10 @@ async function getOpenTabsData(): Promise<OpenTabsData> {
       });
     }
 
-    return { groups, ungroupedTabs, allTabs: validTabs };
+    return {groups, ungroupedTabs, allTabs: validTabs};
   } catch (error) {
     console.warn('Could not query open tabs', error);
-    return { groups: [], ungroupedTabs: [], allTabs: [] };
+    return {groups: [], ungroupedTabs: [], allTabs: []};
   }
 }
 
@@ -607,7 +630,7 @@ async function fetchTitleFromUrl(url: string, allOpenTabs: OpenTabItem[] = []): 
       const controller = new AbortController();
       const timeoutId = window.setTimeout(() => controller.abort(), 2500);
       try {
-        const response = await fetch(url, { signal: controller.signal, mode: 'cors' });
+        const response = await fetch(url, {signal: controller.signal, mode: 'cors'});
         if (response.ok) {
           const html = await response.text();
           const match = html.match(/<title[^>]*>([^<]+)<\/title>/i);
@@ -1070,7 +1093,9 @@ function setImportState(active: boolean, message: string, progress: number): voi
   spinner.hidden = !active;
   refreshImport.disabled = active;
   if (!active) {
-    window.setTimeout(() => { importStatus.hidden = true; }, 3000);
+    window.setTimeout(() => {
+      importStatus.hidden = true;
+    }, 3000);
   }
 }
 
@@ -1190,8 +1215,11 @@ createFolder.addEventListener('click', () => {
     if (!title) {
       return;
     }
-    return storageService.createFolder({ parentId: selectedFolderId, title })
-      .then(async () => { schema = await storageService.getSchema(); render(); });
+    return storageService.createFolder({parentId: selectedFolderId, title})
+      .then(async () => {
+        schema = await storageService.getSchema();
+        render();
+      });
   }).catch(reportError);
 });
 
@@ -1226,7 +1254,7 @@ deleteSelected.addEventListener('click', () => {
   void deleteSelectedNodes().catch(reportError);
 });
 refreshImport.addEventListener('click', () => {
-  void runImport({ duplicateStrategy: 'ignore' }).catch(reportError);
+  void runImport({duplicateStrategy: 'ignore'}).catch(reportError);
 });
 importHtml.addEventListener('click', () => htmlFileInput.click());
 syncBrowserBookmarks.addEventListener('click', () => {
@@ -1306,7 +1334,7 @@ async function showDuplicateResults(): Promise<void> {
 async function runHtmlImport(file: File): Promise<void> {
   setImportState(true, getMessage('htmlImportInProgress'), 0);
   try {
-    const result = await htmlBookmarksImporter.importFile(file, { duplicateStrategy: 'ignore' });
+    const result = await htmlBookmarksImporter.importFile(file, {duplicateStrategy: 'ignore'});
     schema = await storageService.getSchema();
     render();
     const message = `${getMessage('importCompleted')} ${result.tabs} ${getMessage('tabsImported')}.`;
@@ -1325,17 +1353,17 @@ async function openFolderAsGroup(folder: FolderNode): Promise<void> {
     return;
   }
 
-  const createdTabs = await Promise.all(tabs.map((tab) => chrome.tabs.create({ url: tab.url, active: false })));
+  const createdTabs = await Promise.all(tabs.map((tab) => chrome.tabs.create({url: tab.url, active: false})));
   const tabIds = createdTabs.flatMap((tab) => tab.id === undefined ? [] : [tab.id]);
   if (typeof chrome.tabs.group === 'function' && typeof chrome.tabGroups !== 'undefined' &&
     typeof chrome.tabGroups.update === 'function' && tabIds.length > 0) {
     const groupTabIds = [tabIds[0], ...tabIds.slice(1)] as [number, ...number[]];
-    const groupId = await chrome.tabs.group({ tabIds: groupTabIds }) as number;
-    await chrome.tabGroups.update(groupId, { title: folder.title });
+    const groupId = await chrome.tabs.group({tabIds: groupTabIds}) as number;
+    await chrome.tabGroups.update(groupId, {title: folder.title});
     return;
   }
 
-  const bookmarkFolder = await chrome.bookmarks.create({ title: folder.title });
+  const bookmarkFolder = await chrome.bookmarks.create({title: folder.title});
   await Promise.all(tabs.map((tab) => chrome.bookmarks.create({
     parentId: bookmarkFolder.id,
     title: tab.title,
@@ -1367,6 +1395,140 @@ function reportError(error: unknown): void {
   showMessage(error instanceof Error ? error.message : getMessage('operationFailed'));
 }
 
+async function refreshRemoteSyncState(): Promise<void> {
+  const state = await remoteSyncService.getState();
+  const connected = Boolean(state.accessToken);
+  cloudSyncDetail.textContent = connected
+    ? getMessage('cloudSyncConnected').replace('{revision}', String(state.revision))
+    : state.pendingLink
+      ? getMessage('deviceCodePending').replace('{code}', state.pendingLink.userCode)
+      : getMessage('cloudSyncDisconnected');
+  linkDevice.hidden = connected || Boolean(state.pendingLink);
+  completeDeviceLink.hidden = connected || !state.pendingLink;
+  syncUpload.disabled = !connected;
+  syncDownload.disabled = !connected;
+  disconnectDevice.disabled = !connected && !state.pendingLink;
+}
+
+async function startRemoteDeviceLink(): Promise<void> {
+  const result = await remoteSyncService.startDeviceLink(`Extension · ${navigator.platform}`);
+  showMessage(getMessage('deviceCodeInstructions')
+    .replace('{code}', result.userCode)
+    .replace('{expires}', new Date(result.expiresAt).toLocaleTimeString()));
+  await refreshRemoteSyncState();
+}
+
+async function finishRemoteDeviceLink(): Promise<void> {
+  const approved = await remoteSyncService.completeDeviceLink();
+  if (!approved) {
+    showMessage(getMessage('deviceLinkPending'));
+    return;
+  }
+  await refreshRemoteSyncState();
+  showMessage(getMessage('deviceLinked'));
+}
+
+async function uploadRemoteVault(): Promise<void> {
+  syncStatus.textContent = getMessage('syncInProgress');
+  try {
+    const snapshot = await remoteSyncService.push(schema, masterPassword);
+    syncStatus.textContent = getMessage('syncUploadComplete').replace('{revision}', String(snapshot.revision));
+  } catch (error) {
+    if ((error as { status?: number }).status === 409) {
+      syncStatus.textContent = getMessage('syncConflict');
+      return;
+    }
+    throw error;
+  } finally {
+    await refreshRemoteSyncState();
+  }
+}
+
+async function downloadRemoteVault(): Promise<void> {
+  if (!(await requestConfirmation(getMessage('syncDownloadConfirm')))) return;
+  syncStatus.textContent = getMessage('syncInProgress');
+  const result = await remoteSyncService.pull(masterPassword);
+  await storageService.replaceSchema(result.schema);
+  schema = await storageService.getSchema();
+  selectedFolderId = schema.rootFolderId;
+  render();
+  syncStatus.textContent = getMessage('syncDownloadComplete').replace('{revision}', String(result.revision));
+  await refreshRemoteSyncState();
+}
+
+async function disconnectRemoteDevice(): Promise<void> {
+  if (!(await requestConfirmation(getMessage('disconnectDeviceConfirm')))) return;
+  await remoteSyncService.disconnect();
+  await refreshRemoteSyncState();
+}
+
+async function analyzeInactiveTabs(): Promise<void> {
+  const minutes = Number.parseInt(inactiveMinutes.value, 10) || 60;
+  const excluded = excludedDomains.value.split(',');
+  suspensionCandidates = await tabSuspensionService.analyze(minutes, excluded);
+  renderSuspensionCandidates();
+}
+
+function renderSuspensionCandidates(): void {
+  suspensionResults.replaceChildren();
+  const totalMemory = suspensionCandidates.reduce((total, candidate) => total + candidate.estimatedMemoryMb, 0);
+  suspensionSummary.textContent = suspensionCandidates.length === 0
+    ? getMessage('noInactiveTabs')
+    : getMessage('suspensionEstimate')
+      .replace('{tabs}', String(suspensionCandidates.length))
+      .replace('{memory}', String(totalMemory));
+  suspendAllTabs.disabled = suspensionCandidates.length === 0;
+
+  const groups = new Map<string, SuspensionCandidate[]>();
+  for (const candidate of suspensionCandidates) {
+    const key = candidate.groupTitle || getMessage('ungroupedTabs');
+    groups.set(key, [...(groups.get(key) ?? []), candidate]);
+  }
+  for (const [groupName, candidates] of groups) {
+    const group = document.createElement('section');
+    group.className = 'suspension-group';
+    const heading = document.createElement('div');
+    const title = document.createElement('strong');
+    title.textContent = groupName;
+    const groupButton = document.createElement('button');
+    groupButton.type = 'button';
+    groupButton.textContent = getMessage('suspendGroup');
+    groupButton.addEventListener('click', () => void suspendCandidates(candidates).catch(reportError));
+    heading.append(title, groupButton);
+    group.append(heading);
+    for (const candidate of candidates) {
+      const row = document.createElement('div');
+      row.className = 'suspension-candidate';
+      const label = document.createElement('span');
+      label.textContent = `${candidate.title} · ${candidate.inactiveMinutes} min · ~${candidate.estimatedMemoryMb} MB`;
+      label.title = candidate.url;
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = getMessage('suspendTab');
+      button.addEventListener('click', () => void suspendCandidates([candidate]).catch(reportError));
+      row.append(label, button);
+      group.append(row);
+    }
+    suspensionResults.append(group);
+  }
+}
+
+async function suspendCandidates(candidates: SuspensionCandidate[]): Promise<void> {
+  const point = await tabSuspensionService.suspend(candidates.map((candidate) => candidate.tabId));
+  await analyzeInactiveTabs();
+  suspensionSummary.textContent = getMessage('tabsSuspended')
+    .replace('{tabs}', String(point.tabs.length))
+    .replace('{memory}', String(point.estimatedMemoryMb));
+}
+
+async function restoreLatestSuspension(): Promise<void> {
+  const point = await tabSuspensionService.restoreLatest();
+  await analyzeInactiveTabs();
+  suspensionSummary.textContent = point
+    ? getMessage('suspensionRestored').replace('{tabs}', String(point.tabs.length))
+    : getMessage('noRecoveryPoints');
+}
+
 async function exportEncryptedZip(): Promise<void> {
   const payload = await storageService.exportEncryptedSnapshot();
   const archive = createEncryptedArchive(
@@ -1377,7 +1539,7 @@ async function exportEncryptedZip(): Promise<void> {
     archive.byteOffset,
     archive.byteOffset + archive.byteLength,
   ) as ArrayBuffer;
-  const url = URL.createObjectURL(new Blob([archiveBuffer], { type: 'application/zip' }));
+  const url = URL.createObjectURL(new Blob([archiveBuffer], {type: 'application/zip'}));
   const anchor = document.createElement('a');
   anchor.href = url;
   anchor.download = 'gestor-pestanas-backup.zip';

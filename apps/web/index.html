@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Gestiona y sincroniza tus pestañas con cifrado de extremo a extremo." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%235b5ce2'/%3E%3Cpath d='M18 17h28v8H36v25h-8V25H18z' fill='white'/%3E%3C/svg%3E" />
+    <title>Tab Vault</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Tab Vault"><span class="brand-mark">T</span><span>Tab Vault</span></a>
+        <div id="account" class="account"></div>
+      </header>
+
+      <section id="welcome" class="hero">
+        <div>
+          <p class="eyebrow">Tus pestañas, sin consumir tu memoria</p>
+          <h1>Continúa tu trabajo desde cualquier dispositivo.</h1>
+          <p class="lead">Organiza enlaces y sesiones en un espacio cifrado. La clave permanece únicamente contigo.</p>
+          <div id="google-signin"></div>
+          <p id="google-help" class="muted" hidden>Configura <code>VITE_GOOGLE_CLIENT_ID</code> para habilitar Google.</p>
+        </div>
+        <div class="security-card">
+          <span class="lock">◈</span>
+          <h2>Cifrado de extremo a extremo</h2>
+          <p>AES-256-GCM y una clave derivada con 250.000 iteraciones. El servidor solo almacena datos cifrados.</p>
+        </div>
+      </section>
+
+      <section id="unlock-panel" class="unlock-card" hidden>
+        <h1>Desbloquea tu biblioteca</h1>
+        <p>La contraseña maestra no se envía ni puede recuperarse.</p>
+        <form id="unlock-form">
+          <input id="master-password" type="password" minlength="8" autocomplete="current-password" placeholder="Contraseña maestra" aria-label="Contraseña maestra" required />
+          <button type="submit">Desbloquear</button>
+        </form>
+      </section>
+
+      <section id="workspace" class="workspace" hidden>
+        <aside class="sidebar">
+          <div class="sidebar-heading"><h2>Carpetas</h2><button id="new-folder" class="icon-button" title="Nueva carpeta">＋</button></div>
+          <nav id="folder-tree" aria-label="Carpetas"></nav>
+          <div class="plan-card">
+            <strong id="license-status">Plan de prueba</strong>
+            <span id="license-detail"></span>
+            <button id="upgrade" class="secondary">Mejorar plan</button>
+          </div>
+          <div class="device-link-card">
+            <strong>Vincular extensión</strong>
+            <input id="device-code" inputmode="numeric" placeholder="000-000" maxlength="7" aria-label="Código de vinculación" />
+            <button id="approve-device" class="secondary">Aprobar código</button>
+          </div>
+        </aside>
+        <div class="content">
+          <div class="toolbar">
+            <div><p class="eyebrow">Biblioteca</p><h1 id="folder-title">Mi biblioteca</h1></div>
+            <input id="search" type="search" placeholder="Buscar título, URL o descripción" aria-label="Buscar en la biblioteca" />
+          </div>
+          <div class="actions">
+            <button id="new-link">＋ Agregar enlace</button>
+            <button id="sync-now" class="secondary">Sincronizar</button>
+            <button id="export-vault" class="secondary">Exportar cifrado</button>
+            <label class="button secondary">Importar cifrado<input id="import-vault" type="file" accept="application/json,.json" hidden /></label>
+          </div>
+          <p id="status" class="status" role="status" aria-live="polite"></p>
+          <div id="items" class="items"></div>
+          <p id="empty" class="empty">Esta carpeta está vacía.</p>
+        </div>
+      </section>
+    </main>
+
+    <dialog id="editor">
+      <form id="editor-form" method="dialog">
+        <h2 id="editor-title">Agregar enlace</h2>
+        <label>Título<input id="item-title" required /></label>
+        <label id="url-field">URL<input id="item-url" type="url" /></label>
+        <div class="dialog-actions"><button id="editor-cancel" type="button" class="secondary">Cancelar</button><button type="submit">Guardar</button></div>
+      </form>
+    </dialog>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

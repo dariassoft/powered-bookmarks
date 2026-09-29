@@ -10,32 +10,162 @@
       <header class="app-header">
         <h1 data-i18n="extensionName"></h1>
         <div class="header-actions">
-          <button id="create-folder" type="button" data-i18n="createFolder"></button>
-          <button id="refresh-import" type="button" data-i18n="refreshImport"></button>
-          <button id="import-html" type="button" data-i18n="importHtml"></button>
-          <button id="sync-browser-bookmarks" type="button" data-i18n="syncBrowserBookmarks"></button>
-          <input id="html-file-input" type="file" accept=".html,text/html" hidden />
-          <button id="find-duplicates" type="button" data-i18n="findDuplicates"></button>
-          <button id="find-empty-folders" type="button" data-i18n="findEmptyFolders"></button>
+          <button
+            id="create-folder"
+            type="button"
+            data-i18n="createFolder"
+          ></button>
+          <button
+            id="refresh-import"
+            type="button"
+            data-i18n="refreshImport"
+          ></button>
+          <button
+            id="import-html"
+            type="button"
+            data-i18n="importHtml"
+          ></button>
+          <button
+            id="sync-browser-bookmarks"
+            type="button"
+            data-i18n="syncBrowserBookmarks"
+          ></button>
+          <input
+            id="html-file-input"
+            type="file"
+            accept=".html,text/html"
+            hidden
+          />
+          <button
+            id="find-duplicates"
+            type="button"
+            data-i18n="findDuplicates"
+          ></button>
+          <button
+            id="find-empty-folders"
+            type="button"
+            data-i18n="findEmptyFolders"
+          ></button>
           <button id="select-all" type="button" data-i18n="selectAll"></button>
-          <button id="copy-selected" type="button" data-i18n="copySelected"></button>
-          <button id="delete-selected" type="button" data-i18n="deleteSelected"></button>
+          <button
+            id="copy-selected"
+            type="button"
+            data-i18n="copySelected"
+          ></button>
+          <button
+            id="delete-selected"
+            type="button"
+            data-i18n="deleteSelected"
+          ></button>
           <button id="undo-action" type="button" data-i18n="undo"></button>
           <button id="redo-action" type="button" data-i18n="redo"></button>
-          <button id="export-html" type="button" data-i18n="exportHtml"></button>
+          <button
+            id="export-html"
+            type="button"
+            data-i18n="exportHtml"
+          ></button>
           <button id="export-csv" type="button" data-i18n="exportCsv"></button>
           <button id="export-txt" type="button" data-i18n="exportTxt"></button>
           <button id="export-zip" type="button" data-i18n="exportZip"></button>
           <button id="import-zip" type="button" data-i18n="importZip"></button>
-          <input id="zip-file-input" type="file" accept=".zip,application/zip" hidden />
+          <input
+            id="zip-file-input"
+            type="file"
+            accept=".zip,application/zip"
+            hidden
+          />
         </div>
       </header>
-      <div id="import-status" class="import-status" role="status" aria-live="polite" hidden>
+      <div
+        id="import-status"
+        class="import-status"
+        role="status"
+        aria-live="polite"
+        hidden
+      >
         <span class="spinner" aria-hidden="true"></span>
         <span id="import-status-text"></span>
         <progress id="import-progress" max="1" value="0" hidden></progress>
       </div>
       <p id="sync-status" class="sync-status" role="status"></p>
+      <section class="cloud-sync-panel" aria-labelledby="cloud-sync-title">
+        <div>
+          <h2 id="cloud-sync-title" data-i18n="cloudSyncTitle"></h2>
+          <p id="cloud-sync-detail" data-i18n="cloudSyncDisconnected"></p>
+        </div>
+        <div class="panel-actions">
+          <button
+            id="link-device"
+            type="button"
+            data-i18n="linkDevice"
+          ></button>
+          <button
+            id="complete-device-link"
+            type="button"
+            data-i18n="completeDeviceLink"
+            hidden
+          ></button>
+          <button
+            id="sync-upload"
+            type="button"
+            data-i18n="syncUpload"
+            disabled
+          ></button>
+          <button
+            id="sync-download"
+            type="button"
+            data-i18n="syncDownload"
+            disabled
+          ></button>
+          <button
+            id="disconnect-device"
+            type="button"
+            data-i18n="disconnectDevice"
+            disabled
+          ></button>
+        </div>
+      </section>
+      <section class="suspension-panel" aria-labelledby="suspension-title">
+        <div class="suspension-heading">
+          <div>
+            <h2 id="suspension-title" data-i18n="smartSuspensionTitle"></h2>
+            <p data-i18n="smartSuspensionDescription"></p>
+          </div>
+          <div class="panel-actions">
+            <button
+              id="analyze-tabs"
+              type="button"
+              data-i18n="analyzeInactiveTabs"
+            ></button>
+            <button
+              id="suspend-all-tabs"
+              type="button"
+              data-i18n="suspendAll"
+              disabled
+            ></button>
+            <button
+              id="restore-suspension"
+              type="button"
+              data-i18n="undoSuspension"
+            ></button>
+          </div>
+        </div>
+        <div class="suspension-settings">
+          <label
+            ><span data-i18n="inactiveMinutes"></span
+            ><input id="inactive-minutes" type="number" min="1" value="60"
+          /></label>
+          <label
+            ><span data-i18n="excludedDomains"></span
+            ><input
+              id="excluded-domains"
+              type="text"
+              data-i18n-placeholder="excludedDomainsPlaceholder"
+          /></label>
+        </div>
+        <p id="suspension-summary" class="sync-status" role="status"></p>
+        <div id="suspension-results" class="suspension-results"></div>
+      </section>
       <div class="explorer">
         <aside class="tree-panel">
           <h2 data-i18n="folders"></h2>
@@ -52,7 +182,11 @@
         <section class="content-panel">
           <div class="content-header">
             <h2 id="folder-title"></h2>
-            <input id="search-input" type="search" data-i18n-placeholder="searchPlaceholder" />
+            <input
+              id="search-input"
+              type="search"
+              data-i18n-placeholder="searchPlaceholder"
+            />
             <select id="sort-mode" data-i18n-aria-label="sortModeLabel">
               <option value="title" data-i18n="sortTitle"></option>
               <option value="createdAt" data-i18n="sortCreated"></option>
@@ -87,34 +221,79 @@
       <dialog id="message-modal" class="message-modal">
         <h2 id="message-modal-title" data-i18n="extensionName"></h2>
         <p id="message-modal-text"></p>
-        <button id="message-modal-close" type="button" data-i18n="close"></button>
+        <button
+          id="message-modal-close"
+          type="button"
+          data-i18n="close"
+        ></button>
       </dialog>
       <dialog id="action-modal" class="message-modal">
         <h2 id="action-modal-title"></h2>
         <p id="action-modal-message"></p>
         <input id="action-modal-input" type="text" autocomplete="off" hidden />
         <div class="modal-actions">
-          <button id="action-modal-cancel" type="button" data-i18n="cancel"></button>
-          <button id="action-modal-confirm" type="button" data-i18n="confirm"></button>
+          <button
+            id="action-modal-cancel"
+            type="button"
+            data-i18n="cancel"
+          ></button>
+          <button
+            id="action-modal-confirm"
+            type="button"
+            data-i18n="confirm"
+          ></button>
         </div>
       </dialog>
       <dialog id="link-modal" class="message-modal link-modal">
         <h2 id="link-modal-heading" data-i18n="addLink"></h2>
         <p id="link-modal-folder" class="modal-folder-hint"></p>
         <form id="link-modal-form" method="dialog">
-          <label class="modal-field-label" for="link-modal-url" data-i18n="url"></label>
-          <input id="link-modal-url" type="url" required data-i18n-placeholder="urlPlaceholder" autocomplete="off" />
-          <label class="modal-field-label" for="link-modal-title-input" data-i18n="titleLabel"></label>
-          <input id="link-modal-title-input" type="text" required data-i18n-placeholder="titlePlaceholder" autocomplete="off" />
+          <label
+            class="modal-field-label"
+            for="link-modal-url"
+            data-i18n="url"
+          ></label>
+          <input
+            id="link-modal-url"
+            type="url"
+            required
+            data-i18n-placeholder="urlPlaceholder"
+            autocomplete="off"
+          />
+          <label
+            class="modal-field-label"
+            for="link-modal-title-input"
+            data-i18n="titleLabel"
+          ></label>
+          <input
+            id="link-modal-title-input"
+            type="text"
+            required
+            data-i18n-placeholder="titlePlaceholder"
+            autocomplete="off"
+          />
           <div class="modal-actions">
-            <button id="link-modal-cancel" type="button" data-i18n="cancel"></button>
-            <button id="link-modal-confirm" type="submit" data-i18n="confirm"></button>
+            <button
+              id="link-modal-cancel"
+              type="button"
+              data-i18n="cancel"
+            ></button>
+            <button
+              id="link-modal-confirm"
+              type="submit"
+              data-i18n="confirm"
+            ></button>
           </div>
         </form>
       </dialog>
       <footer class="app-footer">
         <small data-i18n="authorCredit"></small>
-        <a href="https://www.linkedin.com/in/danielestebanarias" target="_blank" rel="noreferrer" data-i18n="authorProfile"></a>
+        <a
+          href="https://www.linkedin.com/in/danielestebanarias"
+          target="_blank"
+          rel="noreferrer"
+          data-i18n="authorProfile"
+        ></a>
         <span> · dariassoft@gmail.com</span>
       </footer>
     </main>
